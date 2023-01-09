@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Feedback from './components/Feedback';
 
-function App() {
+function App({name,age}) {
+  const [counter, setCounter] = useState(0)
+  // setTimeout(() => setCounter(counter + 1), 1000)
+  const handlePlus = () => {
+    setCounter(counter+1)
+  }
+  console.log(`Rendering ${counter}`)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1> Getting started {name}, your age is {age} </h1>
+      <h2>{counter}</h2>
+      <button
+        onClick={handlePlus}>plus
+      </button>
+      <Feedback/>
     </div>
   );
 }
